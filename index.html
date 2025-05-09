@@ -4,8 +4,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfólio de Breno Beserra</title>
+  <title>Breno Beserra | Portfólio</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
     * {
       margin: 0;
@@ -15,20 +16,21 @@
     }
 
     body {
-      background: linear-gradient(to right, #1f4037, #99f2c8);
-      color: #333;
+      background-color: #0d0d0d;
+      color: #fff;
       line-height: 1.6;
     }
 
     header {
-      background-color: #0f2027;
-      color: #fff;
-      padding: 40px 20px;
+      background-color: #1a1a1a;
+      color: #f54242;
+      padding: 60px 20px;
       text-align: center;
+      animation: slideFade 1.5s ease-in-out;
     }
 
     header h1 {
-      font-size: 2.5rem;
+      font-size: 2.8rem;
       margin-bottom: 10px;
     }
 
@@ -44,45 +46,74 @@
       color: #fff;
       text-decoration: none;
       font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      color: #f54242;
     }
 
     section {
       padding: 40px 20px;
       max-width: 900px;
       margin: auto;
-      background-color: #ffffffcc;
+      background-color: #1a1a1a;
       border-radius: 12px;
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 8px 16px rgba(255, 0, 0, 0.2);
       margin-bottom: 30px;
+      animation: fadeUp 1s ease forwards;
     }
 
     section h2 {
-      color: #0f2027;
+      color: #f54242;
       margin-bottom: 15px;
     }
 
     footer {
-      background-color: #0f2027;
+      background-color: #111;
       color: white;
       text-align: center;
       padding: 20px;
     }
 
     a {
-      color: #1f4037;
+      color: #f54242;
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes slideFade {
+      from {
+        opacity: 0;
+        transform: translateY(-50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
   </style>
 </head>
 
 <body>
   <header>
-    <h1>Portfólio de Breno Beserra</h1>
+    <h1>Breno Beserra | Portfólio</h1>
     <p>Estudante de Engenharia de Software | CEUB</p>
     <nav>
       <ul>
         <li><a href="#sobre">Sobre</a></li>
         <li><a href="#linguagens">Linguagens</a></li>
-        <li><a href="#hobbies">Hobbies</a></li>
+        <li><a href="#projetos">Projetos</a></li>
+        <li><a href="#curiosidades">Curiosidades</a></li>
         <li><a href="#contato">Contato</a></li>
       </ul>
     </nav>
@@ -90,17 +121,79 @@
 
   <section id="sobre">
     <h2>Sobre Mim</h2>
-    <p>Olá! Me chamo Breno Beserra de Souza (Brenin) e estou cursando o 1º semestre de Engenharia de Software no CEUB. Tenho interesse em aprender novas tecnologias e evoluir na área da programação.</p>
+    <p>Olá! Me chamo Breno Beserra de Souza (Brenin), estudante do 1º semestre de Engenharia de Software no CEUB. Curso a faculdade no período noturno e atualmente estudo as disciplinas: Banco de Dados I, Engenharia de Software, Lógica de Programação, Introdução à Computação, além das matérias online Bootcamp e Fundamentos da Engenharia.</p>
+    <p>Meu nível de inglês é intermediário — tenho maior facilidade na leitura. Estou fazendo curso de inglês no CIL 01 de Brasília.</p>
   </section>
 
   <section id="linguagens">
     <h2>Linguagens e Conhecimentos</h2>
-    <p>Atualmente aprendendo <strong>C#</strong> na disciplina de Lógica de Programação e explorando Banco de Dados I.</p>
+    <p>Atualmente estou aprendendo <strong>C#</strong> e explorando Banco de Dados I. Também uso Git e Visual Studio Code como ferramentas principais.</p>
+    <p><strong>Vantagens do C#:</strong> linguagem moderna, usada em sistemas robustos, jogos com Unity, e aplicações web e desktop via .NET.</p>
+    <canvas id="graficoCSharp" width="400" height="200"></canvas>
+    <script>
+      const ctx = document.getElementById('graficoCSharp').getContext('2d');
+      new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: ['Início', '1 mês', '2 meses', '3 meses'],
+          datasets: [{
+            label: 'Evolução em C#',
+            data: [1, 2, 3.5, 5],
+            borderColor: '#f54242',
+            backgroundColor: 'rgba(245, 66, 66, 0.2)',
+            tension: 0.4
+          }]
+        },
+        options: {
+          plugins: { legend: { labels: { color: '#fff' } } },
+          scales: {
+            x: { ticks: { color: '#fff' } },
+            y: { ticks: { color: '#fff' } }
+          }
+        }
+      });
+    </script>
   </section>
 
-  <section id="hobbies">
-    <h2>Hobbies</h2>
-    <p>Adoro praticar esportes, especialmente jogar bola. Gosto de estar sempre aprendendo coisas novas!</p>
+  <section id="projetos">
+    <h2>Projetos</h2>
+    <ul>
+      <li><strong>BootCamp-I:</strong> Repositório da disciplina de introdução à programação.</li>
+      <li><strong>brenin-dev:</strong> Repositório pessoal com práticas em C# e tecnologias diversas.</li>
+    </ul>
+  </section>
+
+  <section id="curiosidades">
+    <h2>Curiosidades sobre Engenharia de Software</h2>
+    <ul>
+      <li>A Engenharia de Software surgiu como disciplina na década de 1960.</li>
+      <li>É uma das áreas mais demandadas do mercado de tecnologia atualmente.</li>
+      <li>Profissionais da área podem atuar como desenvolvedores, analistas, arquitetos de sistemas, e muito mais.</li>
+      <li>Trabalhar com software exige tanto criatividade quanto pensamento lógico.</li>
+    </ul>
+    <h3>Minha Rotina de Estudos</h3>
+    <canvas id="graficoRotina" width="400" height="200"></canvas>
+    <script>
+      const ctxRotina = document.getElementById('graficoRotina').getContext('2d');
+      new Chart(ctxRotina, {
+        type: 'bar',
+        data: {
+          labels: ['Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb', 'Dom'],
+          datasets: [{
+            label: 'Horas de Estudo por Dia',
+            data: [2, 3, 2.5, 3, 4, 1.5, 2],
+            backgroundColor: '#f54242'
+          }]
+        },
+        options: {
+          plugins: { legend: { labels: { color: '#fff' } } },
+          scales: {
+            x: { ticks: { color: '#fff' } },
+            y: { ticks: { color: '#fff' } }
+          }
+        }
+      });
+    </script>
   </section>
 
   <section id="contato">
@@ -118,3 +211,4 @@
 </body>
 
 </html>
+
